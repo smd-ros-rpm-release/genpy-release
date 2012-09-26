@@ -1,0 +1,13 @@
+syntax: glob
+*.orig
+*.swp
+*.pyc
+*.DS_Store
+*~
+*.log
+.coverage
+src/genpy.egg-info
+nosetests.xml
+syntax: regexp
+(target|build|dist)/.*
+
