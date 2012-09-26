@@ -1,0 +1,16 @@
+Source: ros-fuerte-genpy
+Section: misc
+Priority: extra
+Maintainer: Ken Conley <kwc@willowgarage.com>
+Build-Depends: debhelper (>= 7.0.50~), ros-fuerte-catkin,ros-fuerte-genmsg
+Homepage: http://www.ros.org/wiki/genpy
+Standards-Version: 3.9.2
+
+Package: ros-fuerte-genpy
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-fuerte-genmsg
+Description: ROS message generation for Pzthon.
+ .
+ This stack contains the packages:
+ * genpy: Python ROS message and service generators.
+
