@@ -1,0 +1,12 @@
+Source: genpy
+Section: misc
+Priority: extra
+Maintainer: Dirk Thomas <dthomas@willowgarage.com>
+Build-Depends: debhelper (>= 7.0.50~), ros-groovy-genmsg,ros-groovy-catkin
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: genpy
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-groovy-genmsg
+Description: Python ROS message and service generators.
