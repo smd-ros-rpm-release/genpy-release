@@ -3,15 +3,16 @@ project(genpy)
 find_package(catkin REQUIRED COMPONENTS genmsg)
 
 catkin_package(
-  DEPENDS genmsg
-  CFG_EXTRAS genpy-extras.cmake)
+  CATKIN_DEPENDS genmsg
+  CFG_EXTRAS genpy-extras.cmake
+)
 
 add_subdirectory(scripts)
 
-file(WRITE ${CATKIN_BUILD_PREFIX}/${GENMSG_LANGS_DESTINATION}/genpy "Python")
-install(FILES ${CATKIN_BUILD_PREFIX}/${GENMSG_LANGS_DESTINATION}/genpy
+file(WRITE ${CATKIN_DEVEL_PREFIX}/${GENMSG_LANGS_DESTINATION}/genpy "Python")
+install(FILES ${CATKIN_DEVEL_PREFIX}/${GENMSG_LANGS_DESTINATION}/genpy
   DESTINATION ${GENMSG_LANGS_DESTINATION})
 
 catkin_python_setup()
 
-catkin_add_nosetests(${PROJECT_SOURCE_DIR})
+catkin_add_nosetests(test)
