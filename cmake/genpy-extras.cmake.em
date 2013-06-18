@@ -1,16 +1,13 @@
-if(@PROJECT_NAME@_SOURCE_DIR)
-  find_program_required(GENMSG_PY_BIN genmsg_py.py
-    PATHS ${@PROJECT_NAME@_SOURCE_DIR}/scripts)
-  find_program_required(GENSRV_PY_BIN gensrv_py.py
-    PATHS ${@PROJECT_NAME@_SOURCE_DIR}/scripts)
-  set(GENPY_TEMPLATE_DIR ${@PROJECT_NAME@_SOURCE_DIR}/scripts)
-else()
-  find_program_required(GENMSG_PY_BIN genmsg_py.py
-    PATHS @CMAKE_INSTALL_PREFIX@/lib/genpy)
-  find_program_required(GENSRV_PY_BIN gensrv_py.py
-    PATHS @CMAKE_INSTALL_PREFIX@/lib/genpy)
-  set(GENPY_TEMPLATE_DIR @CMAKE_INSTALL_PREFIX@/share/genpy)
-endif()
+@[if DEVELSPACE]@
+# bin dir variables in develspace
+set(GENPY_BIN_DIR "@(CMAKE_CURRENT_SOURCE_DIR)/scripts")
+@[else]@
+# bin dir variables in installspace
+set(GENPY_BIN_DIR "@(CMAKE_INSTALL_PREFIX)/@(CATKIN_PACKAGE_BIN_DESTINATION)")
+@[end if]@
+
+set(GENMSG_PY_BIN ${GENPY_BIN_DIR}/genmsg_py.py)
+set(GENSRV_PY_BIN ${GENPY_BIN_DIR}/gensrv_py.py)
 
 # Generate .msg->.h for py
 # The generated .h files should be added ALL_GEN_OUTPUT_FILES_py
@@ -90,6 +87,6 @@ macro(_generate_module_py ARG_PKG ARG_GEN_OUTPUT_DIR ARG_GENERATED_FILES)
 
 endmacro()
 
-if(NOT EXISTS @PROJECT_NAME@_SOURCE_DIR)
+if(NOT EXISTS @(PROJECT_NAME)_SOURCE_DIR)
   set(genpy_INSTALL_DIR ${PYTHON_INSTALL_DIR})
 endif()

@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <package>
   <name>genpy</name>
-  <version>0.4.5</version>
+  <version>0.4.12</version>
   <description>Python ROS message and service generators.</description>
-  <maintainer email="dthomas@willowgarage.com">Dirk Thomas</maintainer>
+  <maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
   <license>BSD</license>
 
   <url type="bugtracker">https://github.com/ros/genpy/issues</url>
@@ -13,7 +13,8 @@
   <author>Troy Straszheim</author>
   <author>Morten Kjaergaard</author>
 
-  <build_depend>catkin</build_depend>
+  <buildtool_depend>catkin</buildtool_depend>
+
   <build_depend>genmsg</build_depend>
 
   <run_depend>genmsg</run_depend>
