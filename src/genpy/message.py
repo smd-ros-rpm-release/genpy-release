@@ -428,7 +428,17 @@ def _fill_val(msg, f, v, keys, prefix):
             del def_val[:]
             for el in v:
                 inner_msg = list_msg_class()
-                _fill_message_args(inner_msg, el, prefix)
+                if isinstance(inner_msg, TVal) and type(el) in (int, long):
+                    #special case to handle time value represented as a single number
+                    #TODO: this is a lossy conversion
+                    if isinstance(inner_msg, Time):
+                        inner_msg = Time.from_sec(el/1e9)
+                    elif isinstance(inner_msg, Duration):
+                        inner_msg = Duration.from_sec(el/1e9)
+                    else:
+                        raise MessageException("Cannot create time values of type [%s]"%(type(inner_msg)))
+                else:
+                    _fill_message_args(inner_msg, el, keys, prefix)
                 def_val.append(inner_msg)
     else:
         setattr(msg, f, v)
@@ -523,6 +533,10 @@ def _get_message_or_service_class(type_str, message_type, reload_on_error=False)
     :returns: Message/Service  for message/service type or None, ``class``
     :raises: :exc:`ValueError` If message_type is invalidly specified
     """
+    if message_type == 'time':
+        return Time
+    if message_type == 'duration':
+        return Duration
     ## parse package and local type name for import
     package, base_type = genmsg.package_resource_name(message_type)
     if not package:
