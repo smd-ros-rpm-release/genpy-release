@@ -429,7 +429,10 @@ def string_serializer_generator(package, type_, name, serialize):
             yield INDENT+"%s = %s.encode('utf-8')"%(var,var) #For unicode-strings in Python2, encode using utf-8
             yield INDENT+"length = len(%s)"%(var) # Update the length after utf-8 conversion
 
-            yield pack2("'<I%ss'%length", "length, %s"%var)
+            yield "if python3:"
+            yield INDENT+pack2("'<I%sB'%length", "length, *%s"%var)
+            yield "else:"
+            yield INDENT+pack2("'<I%ss'%length", "length, %s"%var)
     else:
         yield "start = end"
         if array_len is not None:
@@ -676,8 +679,8 @@ def serialize_fn_generator(msg_context, spec, is_numpy=False):
     for y in serializer_generator(msg_context, flattened, True, is_numpy):
         yield "  "+y
     pop_context()
-    yield "except struct.error as se: self._check_types(se)"
-    yield "except TypeError as te: self._check_types(te)"
+    yield "except struct.error as se: self._check_types(struct.error(\"%s: '%s' when writing '%s'\" % (type(se), str(se), str(_x))))"
+    yield "except TypeError as te: self._check_types(ValueError(\"%s: '%s' when writing '%s'\" % (type(te), str(te), str(_x))))"
     # done w/ method-var context #
 
 def deserialize_fn_generator(msg_context, spec, is_numpy=False):
