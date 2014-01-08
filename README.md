@@ -1,3 +1,22 @@
+## genpy - 0.4.15-0
+
+User `dthomas@drudge` released the packages in the `genpy` repository by running `/usr/bin/bloom-release -t hydro -r hydro genpy` on `Wed, 08 Jan 2014 06:15:07 -0000`
+
+The `genpy` package was released.
+
+Version of package(s) in repository `genpy`:
+- rosdistro version: `0.4.14-0`
+- old version: `0.4.14-0`
+- new version: `0.4.15-0`
+
+Versions of tools used:
+- bloom version: `0.4.4`
+- catkin_pkg version: `0.1.24`
+- rosdep version: `0.10.24`
+- rosdistro version: `0.2.20`
+- vcstools version: `0.1.33`
+
+
 ## genpy - 0.4.14-0
 
 User `dthomas@drudge` released the packages in the `genpy` repository by running `/usr/bin/bloom-release -t groovy -r groovy genpy` on `Thu, 05 Sep 2013 22:23:25 -0000`
