@@ -1,0 +1,49 @@
+ros-groovy-genpy (0.4.16-0precise) precise; urgency=high
+
+  * revert "python 3 compatibility" (introduced in 0.4.15)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Tue, 25 Feb 2014 08:00:00 -0000
+
+ros-groovy-genpy (0.4.15-0precise) precise; urgency=high
+
+  * python 3 compatibility (#22 <https://github.com/ros/genpy/issues/22>)
+  * use PYTHON_EXECUTABLE when invoking scripts for better Windows support (#23 <https://github.com/ros/genpy/issues/23>)
+  * improve exception message when message type does not match (#21 <https://github.com/ros/genpy/issues/21>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Tue, 07 Jan 2014 08:00:00 -0000
+
+ros-groovy-genpy (0.4.14-0precise) precise; urgency=high
+
+  * make genpy relocatable (ros/catkin#490 <https://github.com/ros/catkin/issues/490>)
+  * enable int/long values for list of time/duration (#13 <https://github.com/ros/genpy/issues/13>)
+  * fix issue with time/duration message fields (without std_msgs prefix) when used as array (ros/ros_comm#252 <https://github.com/ros/ros_comm/issues/252>)
+  * fix Time() for seconds being of type long on 32-bit systems (fix #15 <https://github.com/ros/genpy/issues/15>)
+  * fix passing keys to _fill_message_args (#20 <https://github.com/ros/genpy/issues/20>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Wed, 21 Aug 2013 07:00:00 -0000
+
+ros-groovy-genpy (0.4.13-0precise) precise; urgency=high
+
+  * check for CATKIN_ENABLE_TESTING to enable configure without tests
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Wed, 03 Jul 2013 07:00:00 -0000
+
+ros-groovy-genpy (0.4.12-0precise) precise; urgency=high
+
+  * fix deserialize bytes in Python3 (#10 <https://github.com/ros/genpy/issues/10>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Tue, 18 Jun 2013 07:00:00 -0000
+
+ros-groovy-genpy (0.4.11-0precise) precise; urgency=high
+
+  * fix handling spaces in folder names (ros/catkin#375 <https://github.com/ros/catkin/issues/375>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Fri, 08 Mar 2013 08:00:00 -0000
+
+ros-groovy-genpy (0.4.10-0precise) precise; urgency=high
+
+  * first public release for Groovy
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Fri, 21 Dec 2012 08:00:00 -0000
+
+
