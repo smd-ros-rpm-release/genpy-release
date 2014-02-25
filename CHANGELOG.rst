@@ -2,6 +2,10 @@
 Changelog for package genpy
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.4.16 (2014-02-25)
+-------------------
+* revert "python 3 compatibility" (introduced in 0.4.15)
+
 0.4.15 (2014-01-07)
 -------------------
 * python 3 compatibility (`#22 <https://github.com/ros/genpy/issues/22>`_)
