@@ -2,9 +2,9 @@
 Changelog for package genpy
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-0.4.16 (2014-02-25)
--------------------
-* revert "python 3 compatibility" (introduced in 0.4.15)
+0.5.0 (2014-02-25)
+------------------
+* use catkin_install_python() to install Python scripts (`#25 <https://github.com/ros/genpy/issues/25>`_)
 
 0.4.15 (2014-01-07)
 -------------------
