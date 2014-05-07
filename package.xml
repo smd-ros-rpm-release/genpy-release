@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>genpy</name>
-  <version>0.5.0</version>
+  <version>0.5.1</version>
   <description>Python ROS message and service generators.</description>
   <maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
   <license>BSD</license>
@@ -22,5 +22,6 @@
   <export>
     <message_generator>py</message_generator>
     <rosdoc config="rosdoc.yaml"/>
+    <architecture_independent/>
   </export>
 </package>
